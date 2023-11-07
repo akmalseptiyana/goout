@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  ol.stepper li:not(:last-child) {
+    margin-right: 3.75rem;
+  }
+
+  ol.stepper li:not(:last-child)::before {
+    content: "";
+    z-index: -2;
+    top: 50%;
+    left: 100%;
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    background-color: #e5e5e5;
+  }
+
+  ol.stepper li.active::after {
+    z-index: -1;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    transform: scale(1.2);
+  }
+
+  ol.stepper li.active ~ li::after {
+    content: none;
+  }
+}
